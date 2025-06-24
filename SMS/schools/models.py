@@ -6,10 +6,10 @@ class School(models.Model):
     branch_address = models.CharField(max_length=1000)
     
     def total_students(self):
-        return Student.objects.filter(branch=self).count()
+        return self.student_set.count()
     
     def total_staff(self):
-        return Staff.objects.filter(branch=self).count()
+        return self.staff_set.count()
 
 class Student(models.Model):
     name = models.CharField(max_length=50)
